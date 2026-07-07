@@ -70,11 +70,23 @@ dependencies = ["scikit-learn", "pandas", "numpy"]
 where = ["src"]
 
 ```
+# Create tests/test_predict.py
+from fraud_detection import predict
 
-Build the package from the project directory
+
+def test_predict_fraudulent_transaction():
+    assert predict([[150]]) == [1]
+
+
+def test_predict_legitimate_transaction():
+    assert predict([[100]]) == [0]
+
+
+# Test and Build the package from the project directory
 
 ```shell
 cd /root/code/fraud-detection
+pytest
 python3 -m build
 ```
 
